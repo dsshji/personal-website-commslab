@@ -5,14 +5,20 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: "Btseps";
+    src: url("btseps2.TTF") format("truetype");
+}
+
 body {
     font-family: "Jersey 10", sans-serif;
     margin: 0;
     padding: 0;
-    background: #0d0d12;
+    background: #dddde3;
     color: #c8c8d4;
 }
 
+/*
 body::before {
     content: '';
     position: fixed;
@@ -25,6 +31,7 @@ body::before {
     pointer-events: none;
     z-index: 9999;
 }
+    */
 
 /* The navigation bar */
 .navbar {
@@ -40,33 +47,34 @@ body::before {
     background: none;
     z-index: 100;
 }
-
+ 
 /* Links inside the navbar */
 .navbar a {
-    font-size: 11px;
-    color: #555;
+    font-size: 18px;
+    color: #181818;
     padding-left: 8px;
     border-left: 2px solid transparent;
 }
 .navbar a:hover {
-    font-size: 11px;          /* remove the size jump */
-    color: #c8c8d4;
+    font-size: 22px;          /* remove the size jump */
+    color: #2145e9;
     text-decoration: none;
 }
 .navbar a.active {
-    color: #7ee8c2;
-    border-left-color: #7ee8c2;
+    color: #2145e9;
+    border-left-color: #2145e9;
 }
 
 h1 {
     font-family: "Press Start 2P", monospace;
-    font-size: 1em;
-    color: #7ee8c2;
+    font-size: 2.5em;
+    color: #2145e9;
     letter-spacing: 0.05em;
     text-shadow: 0 0 20px rgba(126,232,194,0.25);
 }
 h2 {
-    font-size: 13px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 1em;
     color: #555;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -82,21 +90,27 @@ h2 {
 }
 
 .card {
-    background: #13131a;
+    background: #2145e9;
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: none;          /* remove the light-mode shadow */
+    width: 250px;
+    height: 280px;
 }
+
 .card-title {
-    color: #666;
+    color: #c8c8d4;
 }
+
 .card-link:hover .card {
-    border-color: #7ee8c2;
+    border-color: #2145e9;
     box-shadow: none;
 }
 
 .card-image {
-    background: #1a1a26;
-    border: 1px solid rgba(255,255,255,0.05);
+    background: #c8c8d4;
+    width: 100%;
+    height: 200px;      /* fixed height instead of aspect-ratio */
+    aspect-ratio: unset;
 }
 
 .container {
@@ -130,12 +144,12 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: invert(1) opacity(0.5);
+    filter: opacity(0.5);
     transition: opacity 0.2s;
 }
 
 .sidebar a:hover {
-    filter: invert(1) opacity(1);
+    filter: opacity(1);
 }
 
 .project-page {
@@ -145,10 +159,12 @@ h2 {
     padding: 40px 0 80px;
     margin-left: 200px;
     margin-right: 50px;
+    padding-top: 60px;
+    margin-right: 200px;
 }
 
 .project-title {
-    font-size: 1.4em;
+    font-size: 2.5em;
     font-weight: bold;
     margin: 0 0 40px;
     text-align: center;
@@ -165,12 +181,72 @@ h2 {
 }
 
 .description {
-    background: #13131a;
+    background: #2145e9;
     border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: none;
-    color: #888;
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+    max-width: 600px;
+    min-height: 380px;
 }
+
+.home-text {
+    color: #2145e9;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
 .td-figure {
-    background: #13131a;
+    background: #2145e9;
     border: 1px solid rgba(255,255,255,0.08);
+}
+
+.description-text {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #ffffff;
+}
+
+.figure-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* pixel button */
+.pixel-btn {
+    display: inline-block;
+    font-family: "Press Start 2P", monospace;
+    font-size: 11px;
+    color: #ffffff;
+    background: #2145e9;
+    padding: 12px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 16px;
+    /* pixel border effect */
+    box-shadow:
+        0 4px 0 0 #1535b8,
+        4px 0 0 0 #1535b8,
+        -4px 0 0 0 #1535b8,
+        0 -4px 0 0 #3558f0,
+        inset 0 1px 0 0 #5577ff;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.pixel-btn:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 0 0 0 #1535b8,
+        4px 0 0 0 #1535b8,
+        -4px 0 0 0 #1535b8,
+        0 -4px 0 0 #3558f0,
+        inset 0 1px 0 0 #5577ff;
+}
+
+.pixel-btn:hover {
+    background: #3558f0;
 }
