@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Bungee&family=Jersey+10&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="sidebar">
@@ -20,36 +28,48 @@
         <h1>Daria Lobanova</h1>
         <h2>Things I made</h2>
         <p class="home-text">
-            I'm a freshman in NYU Abu Dhabi who took Communications Lab in Spring 2026. This website is a showcase of works I have done throughout this semester.
+            I'm a Computer Science & Interactive Media freshman in NYU Abu Dhabi who took Communications Lab in Spring 2026 with Professor Jack B. Du. This website is a showcase of works I have done throughout this semester.
         </p>
         <div class="container">
             <a href="project1.html" class="card-link">
                 <div class="card" id="card1">
-                    <div class="card-image"></div>
+                    <div class="td-figure" id="cctv">
+                        <canvas id="cctv-canvas"></canvas>
+                    </div>
                     <p class="card-title">Stuck in the Loop</p>
                 </div>
             </a>
             <a href="project2.html" class="card-link">
                 <div class="card" id="card2">
-                    <div class="card-image"></div>
+                    <div class="td-figure" id="book">
+                        <canvas id="book-canvas"></canvas>
+                    </div>
                     <p class="card-title">An Evening of Coming Home</p>
                 </div>
             </a>
             <a href="project3.html" class="card-link">
                 <div class="card" id="card3">
-                    <div class="card-image"></div>
+                    <div class="td-figure" id="ipod">
+                        <canvas id="ipod-canvas"></canvas>
+                    </div>
                     <p class="card-title">The Homecoming</p>
                 </div>
             </a>
             <a href="project4.html" class="card-link">
                 <div class="card" id="card4">
-                    <div class="card-image"></div>
+                    <div class="td-figure" id="vhs">
+                        <canvas id="vhs-canvas"></canvas>
+                    </div>
                     <p class="card-title">comms_lab_exam</p>
                 </div>
             </a>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="js/cctv.js"></script>
+    <script type="module" src="js/book.js"></script>
+    <script type="module" src="js/ipod.js"></script>
+    <script type="module" src="js/vhs.js"></script>
+    <script src="js/script.js"></script>
     
 </body>
 </html>

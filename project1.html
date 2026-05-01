@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stuck in the Loop</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Bungee&family=Jersey+10&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
-</head>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="navbar">
@@ -30,18 +37,20 @@
         <div class="project-content">
             <div class="figure-wrapper">
                 <div class="td-figure" id="computer">
-                    <p>3d figure here later</p>
+                    <canvas id="computer-canvas"></canvas>
                 </div>
                 <a href="https://dsshji.github.io/comm-lab-26-project1/" class="pixel-btn">TAP TO SEE PROJECT</a>
             </div>
             <div class="description" id="description1">
                 <p class="description-text">
-                    This assignment asked to create a website to present a short video we filmed in the beginning of the course. The short film we did is about a person who is moving in and out in a loop: even if he exits the hallway he’s walking in, he ends up there anyways. In the loop, there’re two persons whose actions get weirder and weirder all the time with each loop. At first they interact with the stuck person, but they get more dangerous for what was shown through the passive attacks. Apparently, even through the other exits the person can’t escape. Our video's aesthetic aimed to be somewhat eerie, mysterious, and open for interpretation.<br> 
-For the website I chose to frame this film as a case file from the police or some investigation agency. I strived for a very minimalistic and “functional not fun” experience. I wanted the website to look more professional and scientific rather than to be fun with experience. Some simple interactions are implemented to not disturb the overall aesthetic I wanted to create.
+                    A short film about a person trapped in a looping hallway — no matter which exit he takes, he always ends up back in the same place.<br><br>
+                    Two other figures grow increasingly erratic with each cycle, shifting from curious interaction to quiet menace. The aesthetic is eerie and deliberately open to interpretation.<br><br>
+                    The website frames the film as a case file from an investigation agency: minimal, functional, and clinical — with subtle interactions that don’t break the mood.
                 </p>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="js/computer.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

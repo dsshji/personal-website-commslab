@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Homecoming</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Bungee&family=Jersey+10&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
-</head>
+
 <body>
     <div class="navbar">
         <a href="index.html">Home</a>
@@ -31,18 +39,19 @@
         <div class="project-content">
             <div class="figure-wrapper">
                 <div class="td-figure" id="walkman">
-                    <p>3d figure here later</p>
+                    <canvas id="walkman-canvas"></canvas>
                 </div>
                 <a href="https://dsshji.github.io/comm-lab-audiostory/" class="pixel-btn">TAP TO SEE PROJECT</a>
             </div>
             <div class="description" id="description1">
                 <p class="description-text">
-                    This project aims to tell a story about a burnt-out office worker trying to find internal peace again by coming back to the countryside. This story is special because it is told primarily through sounds, which are embedded throughout the website.<br> 
-Our concept is to display abstract elements of art (shapes, lines, etc.) that visualizes the atmosphere of the specific scene. Meanwhile, sounds tell the story and minimal text supports the narration. Since this story is told through a website, we also aim to utilize web features, particularly interaction. The story is told from the first person perspective, which enhances the users’ empathy as they are able to explore and be in the shoes of the main character.
+                    A story about a burnt-out office worker returning to the countryside to find peace — told primarily through sound, with abstract shapes and minimal text setting the scene.<br><br>
+                    Written in first person, the experience places you directly in the character’s shoes as each soundscape carries you through the journey.
                 </p>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="js/walkman.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

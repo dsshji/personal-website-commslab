@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>An Evening of Coming Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Bungee&family=Jersey+10&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
-</head>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="navbar">
@@ -31,20 +38,19 @@
         <div class="project-content">
             <div class="figure-wrapper">
                 <div class="td-figure" id="sketchbook">
-                    <p>3d figure here later</p>
+                    <canvas id="sketchbook-canvas"></canvas>
                 </div>
                 <a href="https://dsshji.github.io/comms_lab_digitalcomic/" class="pixel-btn">TAP TO SEE PROJECT</a>
             </div>
             <div class="description" id="description1">
                 <p class="description-text">
-                    This project is a nine-panel interactive digital comic that explores the mystery genre through an immersive, web-based experience. <br> 
-At its core, the project is an exploratory narrative centered on suspense and gradual revelation. The story begins with a mysterious figure returning home, only to find the house eerily empty. This visuals of our background establishes the unsettling absence in the house. Rather than presenting a linear story, we designed the experience to unfold through user interaction, encouraging exploration as a means of narrative discovery.
-Each panel incorporates purposeful interactivity, subtly indicated through visual cues such as glow effects. These interactions are not merely decorative but are embedded within the storytelling itself. 
-As the user progresses, the narrative gradually shifts from curiosity to realization, culminating in the revelation that the figure never made it out alive and the house has long been empty. However, the story intentionally remains open to interpretation. By blurring the boundaries between first-person and third-person perspectives, the comic allows users to question their role within the narrative, whether they are observing the mystery or inhabiting it.
+                    A nine-panel interactive digital comic in the mystery genre. A figure returns home to find it eerily empty — the story unfolds through exploration rather than a fixed sequence, with glowing cues guiding each interaction.<br><br>
+                    The narrative deliberately blurs the line between observer and inhabitant. By the end, whether the reader is watching the mystery or inhabiting it is left intentionally unsaid.
                 </p>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="js/sketchbook.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
