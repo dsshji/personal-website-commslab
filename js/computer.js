@@ -33,6 +33,10 @@ scene.add(directionalLight);
 loader.load( 'models/computer.glb', function ( gltf ) {
     computer = gltf.scene; 
     scene.add( computer );
+    canvas.style.cursor = 'pointer';
+    canvas.addEventListener('click', () => {
+        window.open('https://dsshji.github.io/comm-lab-26-project1/', '_blank');
+    });
     computer.scale.set(6, 6, 6);
     computer.position.set(0.5, 0.6, 0);
     computer.rotation.x = 0.2;   // tilts forward/backward

@@ -33,6 +33,10 @@ scene.add(directionalLight);
 loader.load( 'models/sketchbook.glb', function ( gltf ) {
     sketchbook = gltf.scene; 
     scene.add( sketchbook );
+    canvas.style.cursor = 'pointer';
+    canvas.addEventListener('click', () => {
+        window.open('https://dsshji.github.io/comms_lab_digitalcomic/', '_blank');
+    });
     sketchbook.scale.set(0.0045, 0.0045, 0.0045);
     sketchbook.position.set(-0.15, 0.7, 0);
     sketchbook.rotation.x = 0.75;   // tilts forward/backwar

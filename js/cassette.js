@@ -33,6 +33,10 @@ scene.add(directionalLight);
 loader.load( 'models/cassette.glb', function ( gltf ) {
     cassette = gltf.scene; 
     scene.add( cassette );
+    canvas.style.cursor = 'pointer';
+    canvas.addEventListener('click', () => {
+        window.open('https://nadsb26.github.io/commslab-project4/', '_blank');
+    });
     cassette.scale.set(4, 4, 4);
     cassette.position.set(-1, -1.2, 0);
     cassette.rotation.x = 1;   // tilts forward/backward

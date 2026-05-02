@@ -33,6 +33,11 @@ scene.add(directionalLight);
 loader.load( 'models/walkman1.glb', function ( gltf ) {
     walkman = gltf.scene; 
     scene.add( walkman );
+    // if clicks on the 3d model
+    canvas.style.cursor = 'pointer';
+    canvas.addEventListener('click', () => {
+        window.open('https://dsshji.github.io/comm-lab-audiostory/', '_blank');
+    });
     walkman.scale.set(1, 1, 1);
     walkman.position.set(0, 0, 0);
     walkman.rotation.x = 0.2;   // tilts forward/backward
