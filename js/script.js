@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-localStorage.setItem('muted', 'true');
-localStorage.getItem('muted');
-
 const music = document.getElementById('bg-music');
 const btn = document.getElementById('sound-toggle');
 const icon = document.getElementById('sound-icon');
@@ -24,7 +21,12 @@ function applyState() {
         btn.classList.add('muted');
         icon.src = "svg/sound-mute-solid.svg";
     } else {
-        music.play();
+        // play music on click of the button
+        music.play().catch(() => {
+            document.addEventListener('click', () => {
+                if (!isMuted) music.play();
+            }, { once: true });
+        });
         btn.classList.remove('muted');
         icon.src = "svg/sound-on-solid.svg";
     }
