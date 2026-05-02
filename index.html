@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Bungee&family=Jersey+10&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- three.js loaded as es module via import map -->
     <script type="importmap">
     {
         "imports": {
@@ -18,12 +20,20 @@
     </script>
 </head>
 <body>
+    <!-- background audio, loops continuously -->
+    <audio id="bg-music" loop src="music/background.mp3"></audio>
+    <!-- mute/unmute toggle, fixed top-right -->
+    <button class="sound-btn" id="sound-toggle">
+        <img id="sound-icon" src="svg/sound-on-solid.svg" width="16" height="16" alt="sound">
+    </button>
+    <!-- social links fixed to the right edge -->
     <div class="sidebar">
         <a href="https://github.com/dsshji" target="_blank" rel="noopener noreferrer"><img src="svg/github.svg" width="18" height="18" alt="Github" /></a>
         <a href="https://www.linkedin.com/in/daria-lobanova-b01616350/" target="_blank" rel="noopener noreferrer"><img src="svg/linkedin.svg" width="18" height="18" alt="LinkedIn"/></a>
         <a href="https://www.instagram.com/dshxlva/" target="_blank" rel="noopener noreferrer"><img src="svg/instagram.svg" width="18" height="18" alt="Instagram"/></a>
     </div>
 
+    <!-- homepage: name, intro text, and project card grid -->
     <div class="main">
         <h1>Daria Lobanova</h1>
         <h2>Things I made</h2>
@@ -31,6 +41,7 @@
             I'm a Computer Science & Interactive Media freshman in NYU Abu Dhabi who took Communications Lab in Spring 2026 with Professor Jack B. Du. This website is a showcase of works I have done throughout this semester.
         </p>
         <div class="container">
+            <!-- card 1: stuck in the loop -->
             <a href="project1.html" class="card-link">
                 <div class="card" id="card1">
                     <div class="td-figure" id="cctv">
@@ -39,6 +50,7 @@
                     <p class="card-title">Stuck in the Loop</p>
                 </div>
             </a>
+            <!-- card 2: an evening of coming home -->
             <a href="project2.html" class="card-link">
                 <div class="card" id="card2">
                     <div class="td-figure" id="book">
@@ -47,6 +59,7 @@
                     <p class="card-title">An Evening of Coming Home</p>
                 </div>
             </a>
+            <!-- card 3: the homecoming -->
             <a href="project3.html" class="card-link">
                 <div class="card" id="card3">
                     <div class="td-figure" id="ipod">
@@ -55,6 +68,7 @@
                     <p class="card-title">The Homecoming</p>
                 </div>
             </a>
+            <!-- card 4: comms_lab_exam -->
             <a href="project4.html" class="card-link">
                 <div class="card" id="card4">
                     <div class="td-figure" id="vhs">
@@ -65,11 +79,13 @@
             </a>
         </div>
     </div>
+    <!-- three.js scenes for each card thumbnail -->
     <script type="module" src="js/cctv.js"></script>
     <script type="module" src="js/book.js"></script>
     <script type="module" src="js/ipod.js"></script>
     <script type="module" src="js/vhs.js"></script>
+    <!-- sound toggle and external link behavior -->
     <script src="js/script.js"></script>
-    
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 /*
-BOOK MODEL
+book model
 "Book - Fables de La Fontaine" (https://skfb.ly/osZ9S) by Sirolalo is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 */
 
@@ -7,10 +7,12 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 let book;
 
+// grab container size so the canvas fills it
 const container = document.getElementById('book');
 const width = container.clientWidth;
 const height = container.clientHeight;
 
+// scene and camera
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 5, width / height, 0.1, 100 );
 
@@ -18,11 +20,11 @@ const canvas = document.getElementById('book-canvas');
 const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
 renderer.setSize(width, height);
 
-
 camera.position.z = 5;
 
 const loader = new GLTFLoader();
 
+// basic lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
 
@@ -30,19 +32,23 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
 directionalLight.position.set(5, 5, 5);
 scene.add(directionalLight);
 
+// load model and position it
 loader.load( 'models/book.glb', function ( gltf ) {
-    book = gltf.scene; 
+    book = gltf.scene;
     scene.add( book );
     book.scale.set(1, 1, 1);
     book.position.set(0.1, -0.16, 0);
-    book.rotation.x = 0.2;   // tilts forward/backward
-    book.rotation.y = 1.9;   // spins left/right
+    // tilts forward/backward
+    book.rotation.x = 0.2;
+    // spins left/right
+    book.rotation.y = 1.9;
     book.rotation.z = 0;
     console.log(book.position, book.scale);
     }, undefined, function ( error ) {
     console.error( error );
 } );
 
+// float and sway animation loop
 function animate() {
     requestAnimationFrame(animate);
     if (book) {

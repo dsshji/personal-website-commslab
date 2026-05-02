@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Homecoming</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Bungee&family=Jersey+10&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- three.js loaded as es module via import map -->
     <script type="importmap">
     {
         "imports": {
@@ -19,6 +21,13 @@
 </head>
 
 <body>
+    <!-- background audio, loops continuously -->
+    <audio id="bg-music" loop src="music/background.mp3"></audio>
+    <!-- mute/unmute toggle, fixed top-right -->
+    <button class="sound-btn" id="sound-toggle">
+        <img id="sound-icon" src="svg/sound-on-solid.svg" width="16" height="16" alt="sound">
+    </button>
+    <!-- project navigation, fixed left -->
     <div class="navbar">
         <a href="index.html">Home</a>
         <a href="project1.html">Stuck in the Loop</a>
@@ -27,17 +36,19 @@
         <a href="project4.html">comms_lab_exam</a>
     </div>
 
+    <!-- social links fixed to the right edge -->
     <div class="sidebar">
         <a href="https://github.com/dsshji" target="_blank" rel="noopener noreferrer"><img src="svg/github.svg" width="18" height="18" alt="Github" /></a>
         <a href="https://www.linkedin.com/in/daria-lobanova-b01616350/" target="_blank" rel="noopener noreferrer"><img src="svg/linkedin.svg" width="18" height="18" alt="LinkedIn"/></a>
         <a href="https://www.instagram.com/dshxlva/" target="_blank" rel="noopener noreferrer"><img src="svg/instagram.svg" width="18" height="18" alt="Instagram"/></a>
-
     </div>
 
+    <!-- project page: title, 3d figure, and description -->
     <div class="project-page">
         <h1 class="project-title">The Homecoming</h1>
         <div class="project-content">
             <div class="figure-wrapper">
+                <!-- clickable three.js model, opens project on click -->
                 <div class="td-figure" id="walkman">
                     <canvas id="walkman-canvas"></canvas>
                 </div>
@@ -46,12 +57,14 @@
             <div class="description" id="description1">
                 <p class="description-text">
                     A story about a burnt-out office worker returning to the countryside to find peace — told primarily through sound, with abstract shapes and minimal text setting the scene.<br><br>
-                    Written in first person, the experience places you directly in the character’s shoes as each soundscape carries you through the journey.
+                    Written in first person, the experience places you directly in the character's shoes as each soundscape carries you through the journey.
                 </p>
             </div>
         </div>
     </div>
+    <!-- three.js scene for the walkman model -->
     <script type="module" src="js/walkman.js"></script>
+    <!-- sound toggle and external link behavior -->
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,10 +1,40 @@
+// open external links in a new tab
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('a').forEach(function (a) {
-        // check if the site is external or not
         if (a.hostname && a.hostname !== location.hostname) {
-            // if the website is external then open in a new tab
             a.target = '_blank';
             a.rel = 'noopener noreferrer';
         }
     });
 });
+
+localStorage.setItem('muted', 'true');
+localStorage.getItem('muted');
+
+const music = document.getElementById('bg-music');
+const btn = document.getElementById('sound-toggle');
+const icon = document.getElementById('sound-icon');
+
+// read saved mute state
+let isMuted = localStorage.getItem('muted') === 'true';
+
+function applyState() {
+    if (isMuted) {
+        music.pause();
+        btn.classList.add('muted');
+        icon.src = "svg/sound-mute-solid.svg";
+    } else {
+        music.play();
+        btn.classList.remove('muted');
+        icon.src = "svg/sound-on-solid.svg";
+    }
+}
+
+btn.addEventListener('click', () => {
+    isMuted = !isMuted;
+    localStorage.setItem('muted', isMuted);
+    applyState();
+});
+
+// run on page load
+applyState();

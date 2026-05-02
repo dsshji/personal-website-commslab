@@ -1,15 +1,18 @@
 
+/* jersey 10 utility class from google fonts */
 .jersey-10-regular {
   font-family: "Jersey 10", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
+/* custom pixel font for titles */
 @font-face {
     font-family: "Btseps";
-    src: url("../fonts/btseps2.TTF") format("truetype");
+    src: url("fonts/btseps2.TTF") format("truetype");
 }
 
+/* blinking prompt below 3d models */
 .click-hint {
     font-family: "Press Start 2P", monospace;
     font-size: 8px;
@@ -33,7 +36,7 @@ body {
     color: #c8c8d4;
 }
 
-/* The navigation bar */
+/* left-side nav column, fixed */
 .navbar {
     position: fixed;
     left: 0;
@@ -47,8 +50,8 @@ body {
     background: none;
     z-index: 100;
 }
- 
-/* Links inside the navbar */
+
+/* nav link base and active states */
 .navbar a {
     font-size: 18px;
     color: #181818;
@@ -83,7 +86,7 @@ h2 {
     margin: 0;
 }
 
-/* Main content */
+/* homepage center column */
 .main {
     text-align: center;
     min-height: 100vh;
@@ -97,6 +100,7 @@ h2 {
     box-sizing: border-box;
 }
 
+/* project card title label */
 .card-title {
     color: #ffffff;
     font-family: "Press Start 2P", monospace;
@@ -115,6 +119,7 @@ h2 {
     text-decoration: none;
 }
 
+/* project card: 3d preview on top, title below */
 .card {
     background: #2145e9;
     border: 1px solid rgba(255,255,255,0.08);
@@ -140,6 +145,7 @@ h2 {
     aspect-ratio: unset;
 }
 
+/* card grid on the homepage */
 .container {
     display: flex;
     width: 100%;
@@ -152,6 +158,7 @@ h2 {
     padding: 0;
 }
 
+/* social icon column, fixed to the right */
 .sidebar {
     position: fixed;
     right: 0;
@@ -179,6 +186,7 @@ h2 {
     filter: opacity(1);
 }
 
+/* project detail page wrapper */
 .project-page {
     display: flex;
     flex-direction: column;
@@ -197,16 +205,18 @@ h2 {
     text-align: center;
 }
 
+/* side-by-side layout: 3d figure left, description right */
 .project-content {
     display: flex;
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
     gap: 32px;
     width: 100%;
     max-width: 1100px;
     justify-content: center;
 }
 
+/* blue description box */
 .description {
     background: #2145e9;
     border: 1px solid rgba(255,255,255,0.08);
@@ -215,11 +225,12 @@ h2 {
     flex: 0 0 380px;
     max-width: 380px;
     min-height: 320px;
-    margin-left: 0; 
+    margin-left: 0;
     display: flex;
     align-items: center;
 }
 
+/* intro paragraph on the homepage */
 .home-text {
     color: #2145e9;
     font-family: "Pixelify Sans", sans-serif;
@@ -230,6 +241,7 @@ h2 {
     text-align: center;
 }
 
+/* container for the three.js canvas */
 .td-figure {
     width: 420px;
     height: 420px;
@@ -238,6 +250,7 @@ h2 {
     flex-shrink: 0;
 }
 
+/* smaller figure size when inside a card */
 .card .td-figure {
     width: 100%;
     height: 210px;
@@ -257,9 +270,46 @@ h2 {
     color: #ffffff;
 }
 
+/* wraps the 3d figure and the click hint below it */
 .figure-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0;
+}
+
+/* pixel-style mute button, fixed top-right */
+.sound-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: #2145e9;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 4px 0 0 #1535b8,
+        4px 0 0 0 #1535b8,
+        -4px 0 0 0 #1535b8,
+        0 -4px 0 0 #3558f0;
+    transition: background 0.2s;
+}
+
+/* grey out the button when muted */
+.sound-btn.muted {
+    background: #888;
+    box-shadow:
+        0 4px 0 0 #555,
+        4px 0 0 0 #555,
+        -4px 0 0 0 #555,
+        0 -4px 0 0 #999;
+}
+
+.sound-btn img {
+    filter: invert(1);
 }
