@@ -1,6 +1,6 @@
 /*
 walkman model
-"Sony Walkman" (https://skfb.ly/ovFJS) by julius.j.bib is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Walkman Sony Player l K-ON!" (https://skfb.ly/pBSNB) by Silkwo猫 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 */
 
 import * as THREE from 'three';
