@@ -6,6 +6,8 @@ cassette model
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 let cassette;
+let targetRotX = 1;
+let targetRotY = 0.2;
 
 // grab container size so the canvas fills it
 const container = document.getElementById('cassette');
@@ -52,12 +54,25 @@ loader.load( 'models/cassette.glb', function ( gltf ) {
     console.error( error );
 } );
 
+// mouse movement listener
+canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    targetRotY = 0.2 + (mouseX / width - 0.5) * 0.8;
+    targetRotX = 1 + (mouseY / height - 0.5) * 0.8;
+});
+
 // drift and sway animation loop
 function animate() {
     requestAnimationFrame(animate);
     if (cassette) {
-        cassette.position.x = -1 + Math.sin(Date.now() * 0.001) * 0.2;
-        cassette.rotation.y = 0.2 + Math.sin(Date.now() * 0.001) * 0.1;
+        cassette.rotation.y += (targetRotY - cassette.rotation.y) * 0.05;
+        cassette.rotation.x += (targetRotX - cassette.rotation.x) * 0.05;
+
+        cassette.position.y = -1 + Math.sin(Date.now() * 0.001) * 0.1;
+        //cassette.rotation.y = 0.2 + Math.sin(Date.now() * 0.001) * 0.1;
     }
     renderer.render(scene, camera);
 }

@@ -6,6 +6,8 @@ walkman model
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 let walkman;
+let targetRotX = 0.2;
+let targetRotY = 0.1;
 
 // grab container size so the canvas fills it
 const container = document.getElementById('walkman');
@@ -52,12 +54,25 @@ loader.load( 'models/walkman1.glb', function ( gltf ) {
     console.error( error );
 } );
 
+// mouse movement listener
+canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    targetRotY = 0.1 + (mouseX / width - 0.5) * 0.8;
+    targetRotX = 0.2 + (mouseY / height - 0.5) * 0.8;
+});
+
 // float and sway animation loop
 function animate() {
     requestAnimationFrame(animate);
     if (walkman) {
+        walkman.rotation.y += (targetRotY - walkman.rotation.y) * 0.05;
+        walkman.rotation.x += (targetRotX - walkman.rotation.x) * 0.05;
+
         walkman.position.y = 0 + Math.sin(Date.now() * 0.001) * 0.2;
-        walkman.rotation.y = 0.1 + Math.sin(Date.now() * 0.001) * 0.4;
+        //walkman.rotation.y = 0.1 + Math.sin(Date.now() * 0.001) * 0.4;
     }
     renderer.render(scene, camera);
 }
